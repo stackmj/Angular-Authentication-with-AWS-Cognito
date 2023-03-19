@@ -18,6 +18,7 @@ export class SignInComponent {
 
   public signIn(): void {
     this.cognitoService.signIn(this.user).then(() => {
+      this.cognitoService.notifyAuthStatus(true);
       this.router.navigate(['/profile']);
     }).catch((error) => {
       alert(error);

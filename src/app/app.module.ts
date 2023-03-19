@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { IsAuthorizeDirective } from './is-authorize.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ProfileComponent,
     SignInComponent,
     SignUpComponent,
+    IsAuthorizeDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
   ],

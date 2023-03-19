@@ -4,4 +4,5 @@ export interface IUser {
     showPassword: boolean;
     code: string;
     name: string;
+    role: string;
   }

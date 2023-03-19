@@ -15,11 +15,22 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-
+    this.cognitoService.authNotifier.subscribe((status) => {
+      this.isAuthenticated = status;
+    })
+    this.cognitoService.getRole().then((role) => {
+      if (role) {
+        this.isAuthenticated = true;
+      }
+      else {
+        this.isAuthenticated = false;
+      }
+    })
   }
 
   public signOut(): void {
     this.cognitoService.signOut().then(() => {
+      this.cognitoService.notifyAuthStatus(false);
       this.router.navigate(['/signIn']);
     }).catch((error) => {
       alert(error);
